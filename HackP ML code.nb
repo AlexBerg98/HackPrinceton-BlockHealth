@@ -1,0 +1,971 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     42815,        963]
+NotebookOptionsPosition[     40605,        925]
+NotebookOutlinePosition[     40946,        940]
+CellTagsIndexPosition[     40903,        937]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{
+    RowBox[{"1", " ", "--"}], "Hard"}], "-", 
+   RowBox[{"Coded", " ", "Values"}]}], "Subsection"]], "Input",
+ CellChangeTimes->{
+  3.7315100596503406`*^9, {3.7315105444349966`*^9, 3.7315105636543136`*^9}, {
+   3.7315108881616497`*^9, 3.731510914351494*^9}, {3.731511102068143*^9, 
+   3.731511188514097*^9}, {3.731511276006337*^9, 3.7315113270488586`*^9}, {
+   3.731513122705744*^9, 3.7315131257140913`*^9}, {3.731513188525721*^9, 
+   3.7315131945057354`*^9}, {3.731515029201845*^9, 3.731515097239253*^9}, {
+   3.731518283793538*^9, 3.7315182857373004`*^9}, 3.731518318984172*^9, {
+   3.731522820417307*^9, 3.7315228289517384`*^9}, {3.731522919120417*^9, 
+   3.7315229600129347`*^9}, {3.731526913416827*^9, 3.7315269144450674`*^9}, {
+   3.7315269444462247`*^9, 3.731526965209449*^9}, {3.7315453291281805`*^9, 
+   3.7315455552420835`*^9}, 3.731546534080906*^9, {3.731548912051382*^9, 
+   3.7315489122090025`*^9}},ExpressionUUID->"1757464f-0369-4df0-82c6-\
+6077c711c16f"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"(*", 
+    RowBox[{"HARD", "-", 
+     RowBox[{"CODED", " ", "VALUES"}]}], "*)"}],
+   FontWeight->"Bold"], 
+  StyleBox["\[IndentingNewLine]",
+   FontWeight->"Bold"], 
+  RowBox[{
+   RowBox[{
+    RowBox[{"numEMRs", " ", "=", " ", "20"}], ";"}], 
+   StyleBox["\[IndentingNewLine]",
+    FontWeight->"Bold"], 
+   RowBox[{"(*", 
+    RowBox[{
+    "Number", " ", "of", " ", "EMRs", " ", "in", " ", "total", " ", 
+     "dataset"}], "*)"}], 
+   StyleBox["\[IndentingNewLine]",
+    FontWeight->"Bold"], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"keywords", " ", "=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<depression\>\"", ",", " ", "\"\<substance abuse disorder\>\"", ",",
+        " ", "\"\<generalized anxiety disorder\>\"", ",", " ", "\"\<GAD\>\"", 
+       ",", " ", "\"\<MDD\>\"", ",", "\"\<BPD\>\"", ",", " ", "\"\<PTSD\>\"", 
+       ",", " ", "\"\<hepatatis C\>\"", ",", " ", "\"\<tetanus\>\"", ",", 
+       " ", "\"\<suicidal ideation\>\"", ",", " ", "\"\<HIV\>\"", ",", " ", 
+       "\"\<epidermal lacerations\>\"", ",", " ", "\"\<Bipolar Disorder\>\"", 
+       ",", " ", "\"\<HIV\>\"", ",", " ", "\"\<panic attack disorder\>\""}], 
+      "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"enter", " ", "relevant", " ", 
+     RowBox[{"keywords", " ", "--"}], " ", "draw", " ", "from", " ", 
+     "medical", " ", "literature"}], "*)"}]}]}]], "Input",
+ CellChangeTimes->{
+  3.7315100596503406`*^9, {3.7315105444349966`*^9, 3.7315105636543136`*^9}, {
+   3.7315108881616497`*^9, 3.731510914351494*^9}, {3.731511102068143*^9, 
+   3.731511188514097*^9}, {3.731511276006337*^9, 3.7315113270488586`*^9}, {
+   3.731513122705744*^9, 3.7315131257140913`*^9}, {3.731513188525721*^9, 
+   3.7315131945057354`*^9}, {3.731515029201845*^9, 3.731515097239253*^9}, {
+   3.731518283793538*^9, 3.7315182857373004`*^9}, 3.731518318984172*^9, {
+   3.731522820417307*^9, 3.7315228289517384`*^9}, {3.731522919120417*^9, 
+   3.7315229600129347`*^9}, {3.731526913416827*^9, 3.7315269144450674`*^9}, {
+   3.7315269444462247`*^9, 3.731526965209449*^9}, {3.7315453291281805`*^9, 
+   3.7315455552420835`*^9}, 3.731546534080906*^9, {3.731548866843926*^9, 
+   3.7315488773751287`*^9}},
+ CellLabel->
+  "In[431]:=",ExpressionUUID->"7995fffb-d7af-4ef4-aac8-7b1bcd7a053f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"StringJoin", "[", "keywords", "]"}]], "Input",
+ CellChangeTimes->{{3.731567992279913*^9, 3.731568000710816*^9}},
+ CellLabel->
+  "In[458]:=",ExpressionUUID->"6fabf102-3a51-4d38-a87a-6dc2d3515ee9"],
+
+Cell[BoxData["\<\"depressionsubstance abuse disordergeneralized anxiety \
+disorderGADMDDBPDPTSDhepatatis Ctetanussuicidal ideationHIVepidermal \
+lacerationsBipolar DisorderHIVpanic attack disorder\"\>"], "Output",
+ CellChangeTimes->{3.7315680016224823`*^9},
+ CellLabel->
+  "Out[458]=",ExpressionUUID->"85776d3e-fa7f-442c-ad70-35f6c28addab"]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  StyleBox[
+   RowBox[{
+    RowBox[{"2", " ", "--"}], " ", "Imports"}], "Subsection"], 
+  StyleBox["\[IndentingNewLine]", "Subsection"], 
+  RowBox[{"(*", 
+   RowBox[{"JSLABS", " ", "IMPORT"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"dataDir", " ", "=", " ", 
+    RowBox[{"FileNameJoin", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<data\>\""}], "}"}], 
+     "]"}]}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Download", " ", "JSLab", " ", "files", " ", "into", " ", "directory", " ",
+     "beforehand", " ", "for", " ", "this", " ", "function", " ", "to", " ", 
+    "work"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"file", "=", 
+   RowBox[{"First", "@", 
+    RowBox[{"FileNames", "[", 
+     RowBox[{"\"\<*\>\"", ",", "dataDir"}], "]"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{"Import", "[", "file", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"extractionValues", " ", "=", " ", 
+   RowBox[{"{", "}"}]}], " ", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Which", " ", "rows"}], ",", " ", "columns", ",", " ", "elements",
+     ",", " ", 
+    RowBox[{
+    "etc", " ", "to", " ", "extract", " ", "from", " ", "JSLab", " ", 
+     "data"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Take", "[", 
+    RowBox[{"data", ",", "extractionValues"}], "]"}], " ", ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Extract", " ", "the", " ", "relevant", " ", "data"}], 
+   "*)"}]}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.7315100425039015`*^9, 3.731510301526284*^9}, {
+   3.7315112107366333`*^9, 3.731511264202127*^9}, {3.7315113465806856`*^9, 
+   3.731511350251618*^9}, {3.7315183227462835`*^9, 3.7315183766303234`*^9}, {
+   3.7315216239685135`*^9, 3.731521729309209*^9}, 3.73152283444231*^9, {
+   3.7315229147247157`*^9, 3.7315229164185085`*^9}, {3.7315254286767063`*^9, 
+   3.7315254293244853`*^9}, 3.731525494742839*^9, {3.7315269549821367`*^9, 
+   3.7315269573070555`*^9}, {3.7315269919730024`*^9, 3.731527009594466*^9}, {
+   3.7315271029710417`*^9, 3.7315271795938873`*^9}, {3.7315272484781694`*^9, 
+   3.7315272565616407`*^9}, {3.7315274763659024`*^9, 
+   3.7315274880002174`*^9}, {3.7315275392017746`*^9, 3.731527539432064*^9}, 
+   3.7315279392043567`*^9, {3.7315281874737053`*^9, 3.7315282243740053`*^9}, 
+   3.7315286061941576`*^9, {3.731528687395232*^9, 3.7315287000097103`*^9}, {
+   3.731530472373538*^9, 3.7315304849637337`*^9}, 3.731532383505026*^9, 
+   3.73154891370864*^9, 3.7315674175499907`*^9},
+ CellLabel->"",ExpressionUUID->"cc23132c-bc27-491f-bac6-84f406affb7a"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"3", 
+   RowBox[{"A", " ", "--"}], " ", "Imports", " ", "and", " ", "Functions", 
+   " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"with", " ", "Wolfram"}], "-", 
+     RowBox[{"external", " ", "URLs"}]}], ")"}]}], "Subsection"]], "Input",
+ CellChangeTimes->{{3.7315336715925255`*^9, 3.731533694178483*^9}, 
+   3.731548915120397*^9, {3.731560069053485*^9, 3.731560093912472*^9}, {
+   3.731566250249303*^9, 3.7315662505727005`*^9}, 
+   3.731567571953026*^9},ExpressionUUID->"e06631c4-3438-451c-ab0b-\
+30f5575e1436"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Part", " ", 
+     RowBox[{"1", " ", "--"}], " ", "\[IndentingNewLine]", "Output", " ", 
+     "should", " ", "be", " ", "a", " ", "list", " ", "of", " ", 
+     RowBox[{"lists", " ", "--"}], " ", "each", " ", "sublist", " ", "is", 
+     " ", "an", " ", "indidivual", " ", 
+     RowBox[{"EMR", " ", "--"}], " ", "each", " ", "sublist", " ", "has", " ", 
+     RowBox[{"no", ".", " ", "of"}], " ", "elements"}], " ", "=", " ", 
+    RowBox[{
+     RowBox[{"no", ".", " ", "of"}], " ", "key", " ", "variables", " ", "and",
+      " ", "each", " ", "key", " ", "variable", " ", "is", " ", "either", " ",
+      "0", " ", 
+     RowBox[{"(", 
+      RowBox[{"not", " ", "exist"}], ")"}], " ", "or", " ", "1", " ", 
+     RowBox[{"(", "exist", ")"}]}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"names", "=", 
+     RowBox[{"Map", "[", 
+      RowBox[{"ToString", ",", 
+       RowBox[{"Range", "[", 
+        RowBox[{"1", ",", "numEMRs"}], "]"}]}], "]"}]}], ";", " ", 
+    RowBox[{"(*", 
+     RowBox[{"possibly", " ", "temporary"}], "*)"}], "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"importAndCount", "[", "name_", "]"}], ":=", 
+     RowBox[{"Module", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"{", "url", "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"url", "=", 
+         RowBox[{"URLBuild", "[", 
+          RowBox[{"\"\<https://www.google.com\>\"", ",", 
+           RowBox[{"{", 
+            RowBox[{"\"\<name\>\"", "->", "name"}], "}"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{"change", " ", "to", " ", "team", " ", "URL", " ", 
+          RowBox[{"here", "!"}]}], "*)"}], "\[IndentingNewLine]", 
+        RowBox[{"stringFromURL", "=", 
+         RowBox[{"Import", "[", "url", "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"Map", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"StringCount", "[", 
+            RowBox[{"stringFromURL", ",", "#"}], "]"}], "&"}], ",", 
+          "keywords"}], "]"}]}]}], "\[IndentingNewLine]", "]"}]}]}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"existKeywords", " ", "=", " ", 
+     RowBox[{"importAndCount", "/@", "names"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Each", " ", "URL", " ", "corresponds", " ", "to", " ", "an", " ", 
+     "individual", " ", "EMR"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"OBS", "!"}], " ", "Switch", " ", "from", " ", "google", " ", 
+     "to", " ", "appropriate", " ", "URL"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"OBS", "!"}], " ", "Make", " ", "sure", " ", "names", " ", 
+     "variable", " ", "corresponds", " ", "to", " ", "api", " ", "URL", " ", 
+     "suffixes"}], "*)"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.7315288918841453`*^9, 3.7315289266720495`*^9}, {
+   3.731529243824893*^9, 3.731529426555003*^9}, {3.7315294645898476`*^9, 
+   3.7315296026757717`*^9}, 3.7315296809205246`*^9, {3.731529956399845*^9, 
+   3.731529970979355*^9}, {3.731530243521274*^9, 3.731530243798641*^9}, {
+   3.731530430879449*^9, 3.7315305035390573`*^9}, {3.731530549307786*^9, 
+   3.7315305498588514`*^9}, {3.7315306017456827`*^9, 3.73153077957953*^9}, {
+   3.7315308467129245`*^9, 3.731530881038169*^9}, {3.7315309671429224`*^9, 
+   3.731530967533291*^9}, {3.731532344722113*^9, 3.731532388338709*^9}, {
+   3.7315489030375376`*^9, 3.7315489673447795`*^9}, 3.731567428446389*^9},
+ CellLabel->
+  "In[450]:=",ExpressionUUID->"0922173b-fee0-4e08-a364-916338c3d3ff"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Part", " ", 
+     RowBox[{"2", " ", "--"}], " ", "\[IndentingNewLine]", "Output", " ", 
+     "should", " ", "be", " ", "a", " ", "list", " ", "of", " ", 
+     RowBox[{"lists", " ", "--"}], " ", "each", " ", "sublist", " ", "is", 
+     " ", "an", " ", "individual", " ", 
+     RowBox[{"EMR", " ", "--"}], " ", "each", " ", "sublist", " ", "has", " ",
+      "one", " ", "element", " ", "which", " ", "corresponds", " ", "to", " ", 
+     RowBox[{"suicide", " ", "--"}], " ", "suicide", " ", "is", " ", "1"}], 
+    ",", " ", 
+    RowBox[{"not", " ", "suicide", " ", "is", " ", "0"}]}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"existSuicide", " ", "=", " ", 
+     RowBox[{"{", "\"\<suicide\>\"", "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"names", "=", 
+     RowBox[{"Map", "[", 
+      RowBox[{"ToString", ",", 
+       RowBox[{"Range", "[", 
+        RowBox[{"1", ",", "numEMRs"}], "]"}]}], "]"}]}], ";", " ", 
+    RowBox[{"(*", 
+     RowBox[{"possibly", " ", "temporary"}], "*)"}], "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"importAndCount", "[", "name_", "]"}], ":=", 
+     RowBox[{"Module", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"{", "url", "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"url", "=", 
+         RowBox[{"URLBuild", "[", 
+          RowBox[{"\"\<https://www.google.com\>\"", ",", 
+           RowBox[{"{", 
+            RowBox[{"\"\<name\>\"", "->", "name"}], "}"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{"change", " ", "to", " ", "team", " ", "URL", " ", 
+          RowBox[{"here", "!"}]}], "*)"}], "\[IndentingNewLine]", 
+        RowBox[{"stringFromURL", "=", 
+         RowBox[{"Import", "[", "url", "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"Map", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"StringCount", "[", 
+            RowBox[{"stringFromURL", ",", "#"}], "]"}], "&"}], ",", 
+          "existSuicide"}], "]"}]}]}], "\[IndentingNewLine]", "]"}]}]}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"existSuicides", " ", "=", " ", 
+     RowBox[{"importAndCount", "/@", "names"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Each", " ", "URL", " ", "corresponds", " ", "to", " ", "an", " ", 
+     "individual", " ", "EMR"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"OBS", "!"}], " ", "Switch", " ", "from", " ", "google", " ", 
+     "to", " ", "appropriate", " ", "URL"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"OBS", "!"}], " ", "Make", " ", "sure", " ", "names", " ", 
+     "variable", " ", "corresponds", " ", "to", " ", "api", " ", "URL", " ", 
+     "suffixes"}], "*)"}], "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.731510447334571*^9, 3.731510523187239*^9}, {
+   3.731510666056077*^9, 3.731510666427477*^9}, {3.7315109447312*^9, 
+   3.731510947962285*^9}, {3.7315113585912814`*^9, 3.7315114415794706`*^9}, {
+   3.731511501729477*^9, 3.7315115176626663`*^9}, {3.73151154767665*^9, 
+   3.731511577076876*^9}, {3.731511671076713*^9, 3.731511691875887*^9}, {
+   3.731511759784193*^9, 3.7315117601738358`*^9}, {3.7315117956752872`*^9, 
+   3.7315118354346848`*^9}, {3.7315119789049945`*^9, 
+   3.7315120916225753`*^9}, {3.7315121761285863`*^9, 
+   3.7315122006227875`*^9}, {3.731512231873802*^9, 3.7315122446134152`*^9}, {
+   3.7315122871982965`*^9, 3.73151235341371*^9}, {3.7315130194329886`*^9, 
+   3.7315131398149905`*^9}, {3.7315131826358995`*^9, 3.731513242708336*^9}, {
+   3.7315132738484697`*^9, 3.7315132808673563`*^9}, {3.7315133482442007`*^9, 
+   3.7315133796588373`*^9}, {3.7315136258701944`*^9, 
+   3.7315136266536517`*^9}, {3.731514544636508*^9, 3.7315145477347527`*^9}, {
+   3.731514660394679*^9, 3.731514660773312*^9}, {3.73151510098279*^9, 
+   3.731515353911956*^9}, {3.7315158401040974`*^9, 3.7315158413824606`*^9}, {
+   3.731515897928252*^9, 3.731515905050853*^9}, {3.7315163805117435`*^9, 
+   3.7315163807558107`*^9}, {3.7315164452729197`*^9, 3.7315164491882267`*^9}, 
+   3.731516531651266*^9, {3.731518155585647*^9, 3.7315181739917336`*^9}, {
+   3.731518205009323*^9, 3.7315183098764515`*^9}, {3.7315185158741684`*^9, 
+   3.7315185187700357`*^9}, {3.731519376560115*^9, 3.7315194229487033`*^9}, 
+   3.7315228402118196`*^9, {3.7315250221551323`*^9, 3.7315250808002872`*^9}, {
+   3.731525200204377*^9, 3.7315253137035823`*^9}, {3.7315271995826006`*^9, 
+   3.7315272020095806`*^9}, {3.731530574676902*^9, 3.7315305767304916`*^9}, {
+   3.7315308050668077`*^9, 3.7315308255526485`*^9}, {3.7315308866430125`*^9, 
+   3.731530932322255*^9}, {3.731530964219819*^9, 3.7315309707006273`*^9}, {
+   3.731531001364255*^9, 3.7315310184571533`*^9}, {3.7315310686114407`*^9, 
+   3.731531089107213*^9}, {3.7315313678276634`*^9, 3.731531368667406*^9}, {
+   3.7315323278991137`*^9, 3.731532379048381*^9}, {3.7315324542635956`*^9, 
+   3.7315324546090536`*^9}, 3.731533712587714*^9, {3.7315489859962416`*^9, 
+   3.731548991529069*^9}, 3.731567412697872*^9},
+ CellLabel->
+  "In[452]:=",ExpressionUUID->"932a95ac-2015-4a0a-b41a-f7f887a52338"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Part", " ", 
+    RowBox[{"3", " ", "--"}], " ", "\[IndentingNewLine]", "Combining", " ", 
+    "the", " ", "two", " ", "above", " ", 
+    RowBox[{"results", ".", " ", "Result"}], " ", "should", " ", "be", " ", 
+    "a", " ", "list", " ", "that", " ", "predicts", " ", "each", " ", 
+    RowBox[{"keyword", "'"}], "s", " ", "percentage", " ", "appearance", " ", 
+    "in", " ", "positive", " ", "EMRs"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"getDataFromURL", "[", 
+     RowBox[{"id_", ",", "keywords_", ",", "suicide_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"importedEMRString", ",", "counts"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"importedEMRString", "=", 
+        RowBox[{"URLExecute", "[", 
+         RowBox[{"\"\<https://www.google.com\>\"", ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"\"\<id\>\"", "\[Rule]", "id"}], ",", 
+            RowBox[{"\"\<suicide\>\"", "->", "suicide"}]}], "}"}]}], "]"}]}], 
+       ";", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{"change", " ", "to", " ", "team", " ", "URL", " ", 
+         RowBox[{"here", "!"}]}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"counts", "=", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"StringCount", "[", 
+           RowBox[{"importedEMRString", ",", "#"}], "]"}], "&"}], "/@", 
+         "keywords"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"counts", "\[Rule]", 
+        RowBox[{"StringContainsQ", "[", 
+         RowBox[{"importedEMRString", ",", "\"\<suicide\>\""}], "]"}]}]}]}], 
+     "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"allTrainingIDs", "=", 
+     RowBox[{"ToString", "/@", 
+      RowBox[{"Range", "[", 
+       RowBox[{"1", ",", "20"}], "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Arbitrarily", " ", "assign", " ", "the", " ", "EMR", " ", "records", " ",
+      "temp", " ", "IDs", " ", "1", " ", "through", " ", "20", " ", 
+     "respectively"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"dataToClassify", "=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"getDataFromURL", "[", 
+       RowBox[{"#", ",", "keywords", ",", 
+        RowBox[{"existSuicide", "[", "]"}]}], "]"}], "&"}], "/@", 
+     "allTrainingIDs", "\[IndentingNewLine]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.731531915494586*^9, 3.7315319256100707`*^9}, {
+   3.7315320283378167`*^9, 3.7315320304335628`*^9}, {3.7315320870167027`*^9, 
+   3.731532122557304*^9}, {3.731532159342393*^9, 3.731532160023942*^9}, {
+   3.731532405697983*^9, 3.731532433749321*^9}, {3.7315324659694023`*^9, 
+   3.7315325621787343`*^9}, {3.731532612602243*^9, 3.731532637533558*^9}, {
+   3.7315326868985863`*^9, 3.7315326871117096`*^9}, {3.731532909947856*^9, 
+   3.7315329411079516`*^9}, {3.7315329823879337`*^9, 3.731532984479135*^9}, {
+   3.731533106120572*^9, 3.7315331165582557`*^9}, {3.731533152055575*^9, 
+   3.7315331937995863`*^9}, {3.731533249341798*^9, 3.7315334368594804`*^9}, {
+   3.7315334780969296`*^9, 3.7315335568133335`*^9}, {3.7315335983261433`*^9, 
+   3.731533649473278*^9}, {3.7315337385544724`*^9, 3.7315338283651695`*^9}, {
+   3.731534366224265*^9, 3.731534367010137*^9}, {3.7315344522582254`*^9, 
+   3.731534458664276*^9}, {3.7315349705592976`*^9, 3.7315349716788616`*^9}, {
+   3.73153520403188*^9, 3.7315352043012295`*^9}, {3.731560139427369*^9, 
+   3.731560140522028*^9}, {3.7315603103740654`*^9, 3.731560312718114*^9}, {
+   3.731560391772955*^9, 3.7315604193249516`*^9}, 3.731560476900863*^9, {
+   3.731560512695557*^9, 3.7315605137334585`*^9}, 3.7315662906433644`*^9, {
+   3.731566813927149*^9, 3.731566869859909*^9}, {3.7315670201814156`*^9, 
+   3.7315670442976437`*^9}, {3.7315672420645185`*^9, 3.7315672528389583`*^9}, 
+   3.731567321418638*^9},
+ CellLabel->
+  "In[455]:=",ExpressionUUID->"b1eaae59-c2b0-4d1b-814e-bc7f46e2ceb4"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Part", " ", 
+    RowBox[{"4", " ", "--"}], " ", "Predict", " ", "Classifier", " ", 
+    "Function"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"c", "=", 
+     RowBox[{"Classify", "[", "dataToClassify", "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"c", "[", 
+    RowBox[{"{", 
+     RowBox[{"insert", " ", "test", " ", "data"}], "}"}], "]"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "insert", " ", "test", " ", "data", " ", "into", " ", "c", " ", "above"}],
+     "*)"}]}]}]], "Input",
+ CellChangeTimes->{{3.731567291847901*^9, 
+  3.731567364856824*^9}},ExpressionUUID->"287dfb29-8c38-49e0-acb8-\
+dfddd9f465fc"],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Part", " ", 
+    RowBox[{"5", "--"}], " ", 
+    RowBox[{"Deploy", " ", "--"}], " ", "Give", " ", "it", " ", "back"}], 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Assume", " ", "they", " ", "send", " ", "an", " ", "ID", " ", "and", " ", 
+    "we", " ", "get", " ", "EMR", " ", "from", " ", "database", " ", "and", 
+    " ", "then", " ", "clasify"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"CloudDeploy", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"APIFunction", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\<id\>\"", "\[Rule]", "\"\<String\>\""}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Function", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"{", "vals", "}"}], ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"id", "=", 
+           RowBox[{"vals", "[", "\"\<id\>\"", "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"suicide", "=", 
+           RowBox[{
+            RowBox[{
+            "existSuicide", "\[IndentingNewLine]", "importedEMRString"}], "=", 
+            RowBox[{"URLExecute", "[", 
+             RowBox[{
+             "\"\<https://www.google.com\>\"", ",", "\[IndentingNewLine]", 
+              RowBox[{"(*", 
+               RowBox[{"Insert", " ", "team", " ", "URL", " ", "above"}], 
+               "*)"}], "\[IndentingNewLine]", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"\"\<id\>\"", "\[Rule]", "id"}], ",", 
+                RowBox[{"\"\<suicide\>\"", "\[Rule]", "suicide"}]}], "}"}]}], 
+             "]"}]}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"parems", "=", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"StringCount", "[", 
+              RowBox[{"importedEMRString", ",", "#"}], "]"}], "&"}], "/@", 
+            "keywords"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"suicide", "->", 
+           RowBox[{"c", "@", "parems"}]}]}]}], "\[IndentingNewLine]", "]"}]}],
+       "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+     "\"\<junk/giveItBack\>\"", ",", "\[IndentingNewLine]", 
+     RowBox[{"Permissions", "\[Rule]", "\"\<Public\>\""}]}], 
+    "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]", 
+   InterpretationBox[
+    RowBox[{"CloudObject", "[", 
+     TemplateBox[{
+      "\"https://www.wolframcloud.com/objects/kylek/junk/giveItBack\"",
+       "https://www.wolframcloud.com/objects/kylek/junk/giveItBack"},
+      "HyperlinkURL"], "]"}],
+    CloudObject["https://www.wolframcloud.com/objects/kylek/junk/giveItBack"],
+    SelectWithContents->True]}]}]], "Input",
+ CellChangeTimes->{{3.73157027949959*^9, 3.731570288938198*^9}, {
+  3.731570375779902*^9, 3.7315704066773777`*^9}, {3.7315704567261934`*^9, 
+  3.73157048084568*^9}},ExpressionUUID->"dd84ef2e-b245-4353-be14-\
+c4065bb618dc"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"3", 
+   RowBox[{"B", " ", "--"}], " ", "Calling", " ", "EMR", " ", "Data", " ", 
+   "from", " ", "APIs", " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"with", " ", "Wolfram"}], "-", 
+     RowBox[{"internal", " ", "URLs"}]}], ")"}]}], "Subsection"]], "Input",
+ CellChangeTimes->{
+  3.7315249216263866`*^9, {3.7315338763208423`*^9, 3.7315338924289093`*^9}, {
+   3.731547728547493*^9, 3.7315477655775256`*^9}, {3.7315600805282793`*^9, 
+   3.731560086816427*^9}, {3.731566259290408*^9, 3.7315662595335965`*^9}, {
+   3.731567563327067*^9, 
+   3.731567565199049*^9}},ExpressionUUID->"f7b0bf78-fed2-4e6c-83e0-\
+7f26c9de08fa"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Part", " ", 
+     RowBox[{"1", " ", "--"}], " ", "Mock"}], "-", 
+    RowBox[{"Up", " ", "EMRs"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"emrSuicideAPI", "=", 
+   RowBox[{"First", "@", 
+    RowBox[{"CloudDeploy", "[", 
+     RowBox[{
+      RowBox[{"APIFunction", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"\"\<id\>\"", "\[Rule]", "\"\<String\>\""}], ",", 
+          RowBox[{"\"\<suicide\>\"", "\[Rule]", "\"\<String\>\""}]}], "}"}], 
+        ",", "\[IndentingNewLine]", 
+        RowBox[{"Function", "[", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"{", "vals", "}"}], ",", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"isSuicideForTesting", "=", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"vals", "[", "\"\<suicide\>\"", "]"}], "===", 
+              "\"\<0\>\""}], ")"}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"(*", 
+            RowBox[{"suicide", " ", "===", " ", 
+             RowBox[{
+             "has", " ", "to", " ", "be", " ", "changed", " ", "based", " ", 
+              "on", " ", "whether", " ", "suicide", " ", "occured", " ", "or",
+               " ", "not"}]}], "*)"}], "\[IndentingNewLine]", 
+           RowBox[{"ExportForm", "[", 
+            RowBox[{
+             RowBox[{"StringRiffle", "@", 
+              RowBox[{"Join", "[", 
+               RowBox[{
+                RowBox[{"Table", "[", 
+                 RowBox[{
+                  RowBox[{"If", "[", 
+                   RowBox[{
+                   "isSuicideForTesting", ",", "\"\<suicide\>\"", ",", 
+                    "\"\<\>\""}], "]"}], ",", "1"}], "]"}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"Table", "[", 
+                 RowBox[{"\"\<depression\>\"", ",", 
+                  RowBox[{"RandomInteger", "[", 
+                   RowBox[{"{", 
+                    RowBox[{"4", ",", "7"}], "}"}], "]"}]}], "]"}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"Table", "[", 
+                 RowBox[{"\"\<substance abuse disorder\>\"", ",", 
+                  RowBox[{"RandomInteger", "[", 
+                   RowBox[{"{", 
+                    RowBox[{"2", ",", "5"}], "}"}], "]"}]}], "]"}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"Table", "[", 
+                 RowBox[{"\"\<generalized anxiety disorder\>\"", ",", 
+                  RowBox[{"RandomInteger", "[", 
+                   RowBox[{"{", 
+                    RowBox[{"2", ",", "5"}], "}"}], "]"}]}], "]"}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"Table", "[", 
+                 RowBox[{"\"\<GAD\>\"", ",", 
+                  RowBox[{"RandomInteger", "[", 
+                   RowBox[{"{", 
+                    RowBox[{"2", ",", "5"}], "}"}], "]"}]}], "]"}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"Table", "[", 
+                 RowBox[{"\"\<MDD\>\"", ",", 
+                  RowBox[{"RandomInteger", "[", 
+                   RowBox[{"{", 
+                    RowBox[{"2", ",", "5"}], "}"}], "]"}]}], "]"}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"Table", "[", 
+                 RowBox[{"\"\<BPD\>\"", ",", 
+                  RowBox[{"RandomInteger", "[", 
+                   RowBox[{"{", 
+                    RowBox[{"2", ",", "5"}], "}"}], "]"}]}], "]"}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"Table", "[", 
+                 RowBox[{"\"\<PTSD\>\"", ",", 
+                  RowBox[{"RandomInteger", "[", 
+                   RowBox[{"{", 
+                    RowBox[{"2", ",", "5"}], "}"}], "]"}]}], "]"}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"Table", "[", 
+                 RowBox[{"\"\<hepatatis C\>\"", ",", 
+                  RowBox[{"RandomInteger", "[", 
+                   RowBox[{"{", 
+                    RowBox[{"2", ",", "5"}], "}"}], "]"}]}], "]"}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"Table", "[", 
+                 RowBox[{"\"\<tetanus\>\"", ",", 
+                  RowBox[{"RandomInteger", "[", 
+                   RowBox[{"{", 
+                    RowBox[{"2", ",", "5"}], "}"}], "]"}]}], "]"}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"Table", "[", 
+                 RowBox[{"\"\<suicidal ideation\>\"", ",", 
+                  RowBox[{"RandomInteger", "[", 
+                   RowBox[{"{", 
+                    RowBox[{"2", ",", "5"}], "}"}], "]"}]}], "]"}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"Table", "[", 
+                 RowBox[{"\"\<HIV\>\"", ",", 
+                  RowBox[{"RandomInteger", "[", 
+                   RowBox[{"{", 
+                    RowBox[{"2", ",", "5"}], "}"}], "]"}]}], "]"}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"Table", "[", 
+                 RowBox[{"\"\<epidermal lacerations\>\"", ",", 
+                  RowBox[{"RandomInteger", "[", 
+                   RowBox[{"{", 
+                    RowBox[{"2", ",", "5"}], "}"}], "]"}]}], "]"}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"Table", "[", 
+                 RowBox[{"\"\<Bipolar Disorder\>\"", ",", 
+                  RowBox[{"RandomInteger", "[", 
+                   RowBox[{"{", 
+                    RowBox[{"2", ",", "5"}], "}"}], "]"}]}], "]"}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"Table", "[", 
+                 RowBox[{"\"\<HIV\>\"", ",", 
+                  RowBox[{"RandomInteger", "[", 
+                   RowBox[{"{", 
+                    RowBox[{"2", ",", "5"}], "}"}], "]"}]}], "]"}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"Table", "[", 
+                 RowBox[{"\"\<panic attack disorder\>\"", ",", 
+                  RowBox[{"RandomInteger", "[", 
+                   RowBox[{"{", 
+                    RowBox[{"2", ",", "5"}], "}"}], "]"}]}], "]"}]}], 
+               "\[IndentingNewLine]", "]"}]}], ",", "\"\<Text\>\""}], 
+            "]"}]}]}], "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+       "]"}], ",", "\"\<junk/suicideAPI\>\"", ",", 
+      RowBox[{"Permissions", "\[Rule]", "\"\<Public\>\""}]}], 
+     "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.7315493133444576`*^9, 3.731549317597927*^9}, {
+  3.7315705025152607`*^9, 3.7315705101920185`*^9}, {3.73157122619217*^9, 
+  3.731571237664774*^9}},ExpressionUUID->"bd39be26-92b2-4558-aef6-\
+baaefcd2ad3f"],
+
+Cell[BoxData["\<\"https://www.wolframcloud.com/objects/alexberg/junk/\
+suicideAPI\"\>"], "Output",
+ CellChangeTimes->{3.731570510867316*^9, 3.7315710356796265`*^9},
+ CellLabel->
+  "Out[480]=",ExpressionUUID->"95fa7fc2-a0ec-435f-a278-f152d3b96994"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Part", " ", 
+    RowBox[{"2", " ", "--"}], " ", "Import", " ", "Data"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"URLExecute", "[", 
+    RowBox[{"emrSuicideAPI", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\"\<id\>\"", "->", "\"\<3\>\""}], ",", 
+       RowBox[{"\"\<suicide\>\"", "->", "\"\<0\>\""}]}], "}"}]}], "]"}], 
+   ";"}]}]], "Input",
+ CellChangeTimes->{{3.731547020235691*^9, 3.731547347863546*^9}, {
+   3.731547417684703*^9, 3.7315474495048065`*^9}, {3.731547542172655*^9, 
+   3.7315475996607075`*^9}, {3.7315477203668365`*^9, 
+   3.7315477212341537`*^9}, {3.7315477718868427`*^9, 3.7315478813150787`*^9}, 
+   3.7315482725051985`*^9, 3.7315492103819313`*^9, 3.7315492753658547`*^9, {
+   3.7315712426653337`*^9, 
+   3.731571245358284*^9}},ExpressionUUID->"9b9dd05a-63e1-4660-8a3d-\
+c5a8ea817647"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Part", " ", 
+    RowBox[{"3", " ", "--"}], " ", "Call", " ", "API", " ", "and", " ", 
+    "Compute", " ", "Count"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"getDataFromURL", "[", 
+     RowBox[{"id_", ",", "keywords_", ",", "suicide_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"importedEMRString", ",", "counts"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"importedEMRString", "=", 
+        RowBox[{"URLExecute", "[", 
+         RowBox[{"emrSuicideAPI", ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"\"\<id\>\"", "\[Rule]", "id"}], ",", 
+            RowBox[{"\"\<suicide\>\"", "->", "suicide"}]}], "}"}]}], "]"}]}], 
+       ";", "\[IndentingNewLine]", 
+       RowBox[{"counts", "=", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"StringCount", "[", 
+           RowBox[{"importedEMRString", ",", "#"}], "]"}], "&"}], "/@", 
+         "keywords"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"counts", "\[Rule]", 
+        RowBox[{"StringContainsQ", "[", 
+         RowBox[{"importedEMRString", ",", "\"\<suicide\>\""}], "]"}]}]}]}], 
+     "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+   RowBox[{"getDataFromURL", "[", 
+    RowBox[{"\"\<45\>\"", ",", "keywords", ",", "\"\<1\>\""}], 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.731547020235691*^9, 3.731547347863546*^9}, {
+   3.731547417684703*^9, 3.7315474495048065`*^9}, {3.731547542172655*^9, 
+   3.7315475996607075`*^9}, {3.7315477203668365`*^9, 
+   3.7315477212341537`*^9}, {3.7315477718868427`*^9, 3.731547923514482*^9}, 
+   3.731548282985983*^9, {3.731571247638282*^9, 
+   3.7315712506305075`*^9}},ExpressionUUID->"cf51c62b-f998-4138-86fc-\
+d64465d91472"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{
+   "7", ",", "3", ",", "4", ",", "2", ",", "5", ",", "5", ",", "4", ",", "2", 
+    ",", "2", ",", "5", ",", "7", ",", "4", ",", "2", ",", "7", ",", "4"}], 
+   "}"}], "\[Rule]", "False"}]], "Output",
+ CellChangeTimes->{3.7315705790186224`*^9, 3.73157104807551*^9},
+ CellLabel->
+  "Out[483]=",ExpressionUUID->"03c210f9-495c-4873-8157-15a4c8caeea9"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Part", " ", 
+    RowBox[{"4", " ", "--"}], " ", "build", " ", "data", " ", "from", " ", 
+    "URL"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Secure", " ", "REAL", " ", "ones", " ", "of", " ", "the", " ", 
+    RowBox[{"following", ":"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"allIDsForTraining", "=", 
+     RowBox[{"ToString", "/@", 
+      RowBox[{"Range", "[", 
+       RowBox[{"1", ",", "20"}], "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"randomSuicide", "[", "]"}], ":=", 
+     RowBox[{"RandomChoice", "[", 
+      RowBox[{"{", 
+       RowBox[{"\"\<0\>\"", ",", "\"\<1\>\""}], "}"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"dataToClassify", "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"getDataFromURL", "[", 
+        RowBox[{"#", ",", "keywords", ",", 
+         RowBox[{"randomSuicide", "[", "]"}]}], "]"}], "&"}], "/@", 
+      "allIDsForTraining"}]}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.731547632031125*^9, 3.7315476668120756`*^9}, {
+   3.73154795330875*^9, 3.731547969725302*^9}, 3.7315480497133274`*^9, 
+   3.7315482913370934`*^9, 3.7315486686442223`*^9, {3.731571253248316*^9, 
+   3.7315712742514915`*^9}},ExpressionUUID->"17512d1c-dd3e-4a81-a05f-\
+6cdba709e6c8"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Part", " ", 
+    RowBox[{"5", " ", "--"}], " ", "Classify"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"c", "=", 
+     RowBox[{"Classify", "[", "dataToClassify", "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"c", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "2", ",", "3", ",", "3", ",", "1", ",", "2", ",", "1", ",", "0", ",", 
+      "0", ",", "0", ",", "0", ",", "0", ",", "1", ",", "0", ",", "0", ",", 
+      "1"}], "}"}], "]"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Insert", " ", "test", " ", "data", " ", "above"}], 
+    "*)"}]}]}]], "Input",
+ CellChangeTimes->{{3.731536965443442*^9, 3.731536973469656*^9}, {
+   3.731537042463852*^9, 3.7315370427742815`*^9}, 3.731539090242443*^9, {
+   3.731548134165879*^9, 3.7315481397400727`*^9}, 3.731548318835074*^9, 
+   3.731548417209621*^9, {3.731548738390149*^9, 3.7315488068068657`*^9}, {
+   3.73154884087549*^9, 3.7315488444168835`*^9}, {3.731559913894555*^9, 
+   3.731559921138733*^9}, {3.731569365488618*^9, 3.731569418209159*^9}, {
+   3.7315711146877003`*^9, 3.731571210323451*^9}, {3.731571268309721*^9, 
+   3.7315712716803284`*^9}},ExpressionUUID->"d29f955b-4ff1-4887-8116-\
+e96af67c2ddf"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Part", " ", 
+     RowBox[{"6", " ", "--"}], " ", "Deploy"}], ";", " ", 
+    RowBox[{"Give", " ", "it", " ", "back"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Assume", " ", "they", " ", "send", " ", "an", " ", "ID", " ", "and", " ", 
+    "we", " ", "get", " ", "EMR", " ", "from", " ", "database", " ", "and", 
+    " ", "then", " ", "clasify"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"CloudDeploy", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"APIFunction", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\<id\>\"", "\[Rule]", "\"\<String\>\""}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Function", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"{", "vals", "}"}], ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"id", "=", 
+           RowBox[{"vals", "[", "\"\<id\>\"", "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"suicide", "=", 
+           RowBox[{"RandomChoice", "[", 
+            RowBox[{"{", 
+             RowBox[{"\"\<0\>\"", ",", "\"\<1\>\""}], "}"}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"importedEMRString", "=", 
+           RowBox[{"URLExecute", "[", 
+            RowBox[{"emrSuicideAPI", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"\"\<id\>\"", "\[Rule]", "id"}], ",", 
+               RowBox[{"\"\<suicide\>\"", "\[Rule]", "suicide"}]}], "}"}]}], 
+            "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"parems", "=", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"StringCount", "[", 
+              RowBox[{"importedEMRString", ",", "#"}], "]"}], "&"}], "/@", 
+            "keywords"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"suicide", "->", 
+           RowBox[{"c", "@", "parems"}]}]}]}], "\[IndentingNewLine]", "]"}]}],
+       "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+     "\"\<junk/giveItBack\>\"", ",", "\[IndentingNewLine]", 
+     RowBox[{"Permissions", "\[Rule]", "\"\<Public\>\""}]}], 
+    "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]", 
+   InterpretationBox[
+    RowBox[{"CloudObject", "[", 
+     TemplateBox[{
+      "\"https://www.wolframcloud.com/objects/alexberg/junk/giveItBack\"",
+       "https://www.wolframcloud.com/objects/alexberg/junk/giveItBack"},
+      "HyperlinkURL"], "]"}],
+    CloudObject[
+    "https://www.wolframcloud.com/objects/alexberg/junk/giveItBack"],
+    SelectWithContents->True]}]}]], "Input",
+ CellChangeTimes->{{3.7315694416695676`*^9, 3.73156952283*^9}, {
+   3.731569576629588*^9, 3.7315696221671367`*^9}, 3.7315696730527663`*^9, 
+   3.7315706532148595`*^9, {3.731571276687893*^9, 
+   3.7315712829954805`*^9}},ExpressionUUID->"585d3d44-d9dd-4245-a6bc-\
+329d4406f348"]
+},
+WindowSize->{766, 772},
+WindowMargins->{{Automatic, -7}, {Automatic, 0}},
+FrontEndVersion->"11.3 for Microsoft Windows (64-bit) (March 6, 2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1017, 18, 38, "Input",ExpressionUUID->"1757464f-0369-4df0-82c6-6077c711c16f"],
+Cell[1578, 40, 2316, 49, 162, "Input",ExpressionUUID->"7995fffb-d7af-4ef4-aac8-7b1bcd7a053f"],
+Cell[CellGroupData[{
+Cell[3919, 93, 219, 4, 28, "Input",ExpressionUUID->"6fabf102-3a51-4d38-a87a-6dc2d3515ee9"],
+Cell[4141, 99, 340, 5, 52, "Output",ExpressionUUID->"85776d3e-fa7f-442c-ad70-35f6c28addab"]
+}, Open  ]],
+Cell[4496, 107, 2748, 62, 222, "Input",ExpressionUUID->"cc23132c-bc27-491f-bac6-84f406affb7a"],
+Cell[7247, 171, 551, 13, 38, "Input",ExpressionUUID->"e06631c4-3438-451c-ab0b-30f5575e1436"],
+Cell[7801, 186, 3679, 79, 352, "Input",ExpressionUUID->"0922173b-fee0-4e08-a364-916338c3d3ff"],
+Cell[11483, 267, 5226, 100, 333, "Input",ExpressionUUID->"932a95ac-2015-4a0a-b41a-f7f887a52338"],
+Cell[16712, 369, 4008, 79, 295, "Input",ExpressionUUID->"b1eaae59-c2b0-4d1b-814e-bc7f46e2ceb4"],
+Cell[20723, 450, 720, 21, 86, "Input",ExpressionUUID->"287dfb29-8c38-49e0-acb8-dfddd9f465fc"],
+Cell[21446, 473, 2937, 65, 413, "Input",ExpressionUUID->"dd84ef2e-b245-4353-be14-c4065bb618dc"],
+Cell[24386, 540, 657, 15, 38, "Input",ExpressionUUID->"f7b0bf78-fed2-4e6c-83e0-7f26c9de08fa"],
+Cell[CellGroupData[{
+Cell[25068, 559, 6603, 142, 504, "Input",ExpressionUUID->"bd39be26-92b2-4558-aef6-baaefcd2ad3f"],
+Cell[31674, 703, 247, 4, 32, "Output",ExpressionUUID->"95fa7fc2-a0ec-435f-a278-f152d3b96994"]
+}, Open  ]],
+Cell[31936, 710, 886, 21, 48, "Input",ExpressionUUID->"9b9dd05a-63e1-4660-8a3d-c5a8ea817647"],
+Cell[CellGroupData[{
+Cell[32847, 735, 1843, 43, 162, "Input",ExpressionUUID->"cf51c62b-f998-4138-86fc-d64465d91472"],
+Cell[34693, 780, 398, 9, 32, "Output",ExpressionUUID->"03c210f9-495c-4873-8157-15a4c8caeea9"]
+}, Open  ]],
+Cell[35106, 792, 1359, 34, 105, "Input",ExpressionUUID->"17512d1c-dd3e-4a81-a05f-6cdba709e6c8"],
+Cell[36468, 828, 1250, 28, 86, "Input",ExpressionUUID->"d29f955b-4ff1-4887-8116-e96af67c2ddf"],
+Cell[37721, 858, 2880, 65, 356, "Input",ExpressionUUID->"585d3d44-d9dd-4245-a6bc-329d4406f348"]
+}
+]
+*)
+
